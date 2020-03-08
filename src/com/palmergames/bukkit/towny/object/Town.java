@@ -583,7 +583,7 @@ public class Town extends TownyObject implements ResidentList, TownyInviter, Obj
 	 * 
 	 * @return world or null
 	 */
-	public TownyWorld getWorld() {
+	public TownyWorld getHomeblockWorld() {
 
 		if (world != null)
 			return world;
@@ -1392,7 +1392,7 @@ public class Town extends TownyObject implements ResidentList, TownyInviter, Obj
 			World world;
 
 			if (hasWorld()) {
-				world = BukkitTools.getWorld(getWorld().getName());
+				world = BukkitTools.getWorld(getHomeblockWorld().getName());
 			} else {
 				world = BukkitTools.getWorlds().get(0);
 			}
@@ -1420,7 +1420,7 @@ public class Town extends TownyObject implements ResidentList, TownyInviter, Obj
 	@Deprecated
 	public World getBukkitWorld() {
 		if (hasWorld()) {
-			return BukkitTools.getWorld(getWorld().getName());
+			return BukkitTools.getWorld(getHomeblockWorld().getName());
 		} else {
 			return BukkitTools.getWorlds().get(0);
 		}

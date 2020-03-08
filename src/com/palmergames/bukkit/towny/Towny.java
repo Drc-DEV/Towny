@@ -197,7 +197,7 @@ public class Towny extends JavaPlugin {
 		TownyUniverse universe = TownyUniverse.getInstance();
 		for (Town town : universe.getDataSource().getTowns()) {
 
-			if (town.getWorld() == null) {
+			if (town.getHomeblockWorld() == null) {
 				LOGGER.warn("[Towny Error] Detected an error with the world files. Attempting to repair");
 				if (town.hasHomeBlock())
 					try {

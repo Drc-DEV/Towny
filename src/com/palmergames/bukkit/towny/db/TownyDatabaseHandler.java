@@ -587,7 +587,7 @@ public abstract class TownyDatabaseHandler extends TownyDataSource {
 		//removeTownBlocks(town);		
 
 		List<Resident> toSave = new ArrayList<>(town.getResidents());
-		TownyWorld townyWorld = town.getWorld();
+		TownyWorld townyWorld = town.getHomeblockWorld();
 
 		try {
 			if (town.hasNation()) {
@@ -810,7 +810,7 @@ public abstract class TownyDatabaseHandler extends TownyDataSource {
 				isCapital = town.isCapital();
 			}
 
-			TownyWorld world = town.getWorld();
+			TownyWorld world = town.getHomeblockWorld();
 			world.removeTown(town);
 			/*
 			 * Tidy up old files.
@@ -875,7 +875,7 @@ public abstract class TownyDatabaseHandler extends TownyDataSource {
 			saveTown(town);
 			saveTownList();
 			savePlotGroupList();
-			saveWorld(town.getWorld());
+			saveWorld(town.getHomeblockWorld());
 
 			if (nation != null) {
 				saveNation(nation);
