@@ -96,8 +96,9 @@ public class TownyUniverse {
             System.out.println("[Towny] Error: Failed to load!");
             return false;
         }
-        long endTime = System.currentTimeMillis();
-        System.out.println("Time to load: " + (endTime - startTime));
+        long time = (System.currentTimeMillis() - startTime) / 1000;
+        
+        System.out.println("Time to load: " + time + " seconds.");
         
         try {
             dataSource.cleanupBackups();
