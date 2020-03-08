@@ -1505,9 +1505,9 @@ public final class TownyFlatFileSource extends TownyDatabaseHandler {
 						try {
 							Town town = getTown(line.trim());
 							townBlock.setTown(town);
-							TownyWorld world = townBlock.getWorld();
-							if (!world.hasTown(town))
-								world.addTown(town);
+                            TownyWorld townyWorld = townBlock.getWorld();
+                            if (townyWorld != null && !townyWorld.hasTown(town))
+                            	townyWorld.addTown(town);
 						} catch (Exception ignored) {
 						}
 

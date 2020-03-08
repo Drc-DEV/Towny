@@ -524,6 +524,7 @@ public class Town extends TownyObject implements ResidentList, TownyInviter, Obj
 
 		if (homeBlock == null) {
 			this.homeBlock = null;
+			TownyMessaging.sendErrorMsg("town.forceSetHomeBlock(); is returning null");
 			return;
 		}
 
@@ -548,7 +549,7 @@ public class Town extends TownyObject implements ResidentList, TownyInviter, Obj
 	}
 
 	/**
-	 * Sets the world this town belongs to. If it's a world change it will
+	 * Sets the world this town's homeblock belongs to. If it's a world change it will
 	 * remove the town from the old world and place in the new.
 	 * 
 	 * @param world - TownyWorld to attribute a town to
@@ -578,10 +579,11 @@ public class Town extends TownyObject implements ResidentList, TownyInviter, Obj
 	}
 
 	/**
-	 * Fetch the World this town is registered too. If (for any reason) it's
-	 * null it will attempt to find the owning world from TownyUniverse.
+	 * Fetch the World this town homeblock is registered too. 
+	 * If the world is null it will poll the TownyWorlds for a townblock owned by the Town.
+	 * If it fails to find any claimed blocks it will return the first TownyWorld as a placeholder.
 	 * 
-	 * @return world or null
+	 * @return world
 	 */
 	public TownyWorld getHomeblockWorld() {
 

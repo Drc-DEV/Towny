@@ -90,7 +90,7 @@ public class TownyUniverse {
         System.out.println("[Towny] Database: [Load] " + loadDbType + " [Save] " + saveDbType);
         
         clearAll();
-
+                
         long startTime = System.currentTimeMillis();
         if (!loadDatabase(loadDbType)) {
             System.out.println("[Towny] Error: Failed to load!");

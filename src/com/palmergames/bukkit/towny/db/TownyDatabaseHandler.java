@@ -283,7 +283,8 @@ public abstract class TownyDatabaseHandler extends TownyDataSource {
 				return world;
 		}
 
-		return null;
+		// If this has failed the Town has no land claimed at all but should be given a world regardless.
+		return universe.getDataSource().getWorlds().get(0);
 	}
 
 	@Override
